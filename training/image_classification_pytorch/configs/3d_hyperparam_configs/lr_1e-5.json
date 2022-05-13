@@ -1,0 +1,47 @@
+{
+    "model_module_name": "cnn3d_module",
+    "model_net_name": "cnn3d",
+    "gpu_id": "0",
+    "async_loading": true,
+    "is_tensorboard": false,
+    "evaluate_before_train": false,
+  
+  
+    "feature_extract" : true,
+    "shuffle": true,
+    "data_aug": true,
+  
+    "num_epochs": 100,
+    "img_height": 256,
+    "img_width": 256,
+    "num_channels": 1,
+    "loader" : "pil_loader",
+  
+    "num_classes": 1,
+    "batch_size": 4,
+    "dataloader_workers": 4,
+    "learning_rate": 1e-5,
+    "patience": 10,
+    "learning_rate_decay": 0.9,
+    "learning_rate_decay_epoch": 10,
+  
+    "train_mode": "pre_trained",
+    "file_label_separator": "----",
+    "pretrained_path": "/image_classification_pytorch/pretained",
+    "pretrained_file": "/image_classification_pytorch/pretained/genesis_chest_ct.pt",
+    "save_path": "/image_classification_pytorch/save_model/",
+    "auc_save_name" : "auc_model.pth",
+    "acc_save_name" : "acc_model.pth",
+   
+    "train_data_root_dir": "/image_classification_pytorch/data/1_window_split/train/",
+    "train_data_file": "/image_classification_pytorch/data/1_window_split/train/labels.csv",
+  
+    "val_data_root_dir": "/image_classification_pytorch/data/1_window_split/val/",
+    "val_data_file": "/image_classification_pytorch/data/1_window_split/val/labels.csv"
+  
+    
+  
+  
+  
+  
+  }

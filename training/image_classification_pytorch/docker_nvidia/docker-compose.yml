@@ -1,0 +1,21 @@
+version: '2.3'
+services:
+  CT_n:
+    image: ct_n
+    container_name: CT_n
+    working_dir: /image_classification_pytorch
+    build:
+      context: ../
+      dockerfile: docker_nvidia/Dockerfile
+    ports:
+      - "8881:8881" # for jupyter notebook
+      - "8882:8882" # for http server
+      - "8883:8883" # for http server
+      - "5556:5556"
+    volumes:
+      - ../:/image_classification_pytorch
+      - /home/sidra/Documents/STOIC/image_classification_pytorch/data/:/image_classification_pytorch/data
+      - /home/sidra/Documents/STOIC/mayug/stoic2021-baseline-finalphase-main/:/stoic2021-baseline-finalphase-main
+    runtime: nvidia
+    shm_size: "8gb"
+    command: bash -c "tail /dev/null -f"

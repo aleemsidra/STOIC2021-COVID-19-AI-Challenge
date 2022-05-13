@@ -1,0 +1,47 @@
+{
+    "model_module_name": "mobilenet_v3_module",
+    "model_net_name": "mobilenet_v3_large",
+    "gpu_id": "0",
+    "async_loading": true,
+    "is_tensorboard": false,
+    "evaluate_before_train": false,
+  
+  
+    "feature_extract" : true,
+    "shuffle": true,
+    "data_aug": true,
+  
+    "num_epochs": 1,
+    "img_height": 256,
+    "img_width": 256,
+    "num_channels": 1,
+    "loader" : "pil_loader",
+  
+    "num_classes": 1,
+    "batch_size": 16,
+    "dataloader_workers": 8,
+    "learning_rate": 1e-4,
+    "patience": 10,
+    "learning_rate_decay": 0.5,
+    "learning_rate_decay_epoch": 40,
+  
+    "train_mode": "fromscratch",
+    "file_label_separator": "----",
+    "pretrained_path": null,
+    "pretrained_file": null,
+    "save_path": "/image_classification_pytorch/save_model/",
+    "auc_save_name" : "auc_model.pth",
+    "acc_save_name" : "acc_model.pth",
+   
+    "train_data_root_dir": "/image_classification_pytorch/data/1_window_split/",
+    "train_data_file": "/image_classification_pytorch/data/1_window_split/train_labels.csv",
+  
+    "val_data_root_dir": "/image_classification_pytorch/data/1_window_split/",
+    "val_data_file": "/image_classification_pytorch/data/1_window_split/val_labels.csv"
+  
+    
+  
+  
+  
+  
+  }

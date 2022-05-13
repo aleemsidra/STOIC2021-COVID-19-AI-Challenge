@@ -62,7 +62,7 @@ def preprocess_dir(mha_dir, scratch_dir):
     # sub_path = os.path.join(root_dir, "scratch")
 
 
-    img_list = [i for i in img_list if '.mha' in i][:40]
+    img_list = [i for i in img_list if '.mha' in i]
 
     print('total images to be preprocessed ', len(img_list))
     # asd

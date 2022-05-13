@@ -18,7 +18,7 @@ if __name__ == "__main__":
     suffixes_mob= ['mobile_1','mobile_2','mobile_3','mobile_4','mobile_5']
     suffixes_res= ['resnet_1','resnet_2','resnet_3','resnet_4','resnet_5']
 
-    suffixes = suffixes_res
+    suffixes = suffixes_mob + suffixes_res
 
     # artifacts = do_learning(DATA_DIR, ARTIFACT_DIR)
 

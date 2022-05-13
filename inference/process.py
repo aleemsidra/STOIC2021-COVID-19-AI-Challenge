@@ -54,35 +54,83 @@ class StoicAlgorithm(MultiClassAlgorithm):
         self.model.load()
         self.model = self.model.eval()
 
-        config['pretrained_file'] = f'{2}.pth.tar'
+        config['pretrained_file'] = f'mobile_{2}.pth.tar'
 
         self.model1 = ExampleModel(config)
         self.model1 = self.model1.to(device)
         self.model1.load()
         self.model1 = self.model1.eval()
 
-        config['pretrained_file'] = f'{3}.pth.tar'
+        config['pretrained_file'] = f'mobile_{3}.pth.tar'
 
         self.model2 = ExampleModel(config)
         self.model2 = self.model2.to(device)
         self.model2.load()
         self.model2 = self.model2.eval()
 
-        config['pretrained_file'] = f'{4}.pth.tar'
+        config['pretrained_file'] = f'mobile_{4}.pth.tar'
 
         self.model3 = ExampleModel(config)
         self.model3 = self.model3.to(device)
         self.model3.load()
         self.model3 = self.model3.eval()
 
-        config['pretrained_file'] = f'{5}.pth.tar'
+        config['pretrained_file'] = f'mobile_{5}.pth.tar'
 
         self.model4 = ExampleModel(config)
         self.model4 = self.model4.to(device)
         self.model4.load()
         self.model4 = self.model4.eval()
 
-        self.model_list = [self.model, self.model1, self.model2, self.model3, self.model4]
+
+
+        mob_model_list = [self.model, self.model1, self.model2, self.model3, self.model4]
+
+
+        print('loading r18 models')
+        config_path = "algorithm/cnn_baseline/configs/config_resnet.json"
+        
+        config = process_config(config_path)
+        self.config_resnet = config
+
+        
+
+        self.model_r = ExampleModel(config)
+        self.model_r = self.model_r.to(device)
+        self.model_r.load()
+        self.model_r = self.model_r.eval()
+
+        config['pretrained_file'] = f'resnet_{2}.pth.tar'
+
+        self.model1_r = ExampleModel(config)
+        self.model1_r = self.model1_r.to(device)
+        self.model1_r.load()
+        self.model1_r = self.model1_r.eval()
+
+        config['pretrained_file'] = f'resnet_{3}.pth.tar'
+
+        self.model2_r = ExampleModel(config)
+        self.model2_r = self.model2_r.to(device)
+        self.model2_r.load()
+        self.model2_r = self.model2_r.eval()
+
+        config['pretrained_file'] = f'resnet_{4}.pth.tar'
+
+        self.model3_r = ExampleModel(config)
+        self.model3_r = self.model3_r.to(device)
+        self.model3_r.load()
+        self.model3_r = self.model3_r.eval()
+
+        config['pretrained_file'] = f'resnet_{5}.pth.tar'
+
+        self.model4_r = ExampleModel(config)
+        self.model4_r = self.model4_r.to(device)
+        self.model4_r.load()
+        self.model4_r = self.model4_r.eval()
+
+        res_model_list = [self.model_r, self.model1_r, self.model2_r, self.model3_r, self.model4_r]
+
+        self.model_list = mob_model_list + res_model_list
 
         # self.model_list = [self.model, self.model1]
 

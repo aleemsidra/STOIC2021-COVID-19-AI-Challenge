@@ -20,10 +20,18 @@ class ExampleModel(BaseModel):
 
     def create_model(self):
         import torchvision.models as models
-        self.feature_dimension = 960
-        self.classifier = nn.Linear(self.feature_dimension, 2).cuda()
-        self.net = models.mobilenet_v3_large(pretrained=False)
-        self.net.classifier = nn.Identity()
+
+        if self.config['model_net_name'] == 'mobilenet_v3_module':
+            self.feature_dimension = 960
+            self.classifier = nn.Linear(self.feature_dimension, 2).cuda()
+            self.net = models.mobilenet_v3_large(pretrained=False)
+            self.net.classifier = nn.Identity()
+        elif self.config['model_net_name'] == 'resnet18':
+            self.feature_dimension = 512
+            self.classifier = nn.Linear(self.feature_dimension, 2).cuda()
+            self.net = models.resnet18(pretrained=False)
+            self.net.fc = nn.Identity()
+
 
         if torch.cuda.is_available():
             self.net.cuda()

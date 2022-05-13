@@ -19,7 +19,7 @@ class ExampleModel(BaseModel):
     def __init__(self, config, time, suffix):
         super(ExampleModel, self).__init__(config, time, suffix)
         self.config = config
-        self.interface = NetModule(self.config['model_module_name'], self.config['model_net_name'])
+        # self.interface = NetModule(self.config['model_module_name'], self.config['model_net_name'])
         self.create_model()
 
 
@@ -27,14 +27,27 @@ class ExampleModel(BaseModel):
         # self.net = self.interface.create_model(num_classes=self.config['num_classes'])
         import torchvision.models as models
 
-        self.feature_dimension = 960
-        self.classifier = nn.Linear(self.feature_dimension, 2).cuda()
-        self.net = models.mobilenet_v3_large(pretrained=False)
-        print('cwd ', os.getcwd())
-        state_dict = torch.load('./image_classification_pytorch/checkpoints/mobnet_v3_large_imgnet.pth')
-        print('loading imagenet weights ', self.net.load_state_dict(state_dict))
-        # self.net.classifier = nn.Linear(self.feature_dimension, 1)
-        self.net.classifier = nn.Identity()
+        print('loading model ', self.config['model_net_name'])
+
+        if self.config['model_net_name'] == 'mobilenet_v3_large':
+            self.feature_dimension = 960
+            self.classifier = nn.Linear(self.feature_dimension, 2).cuda()
+            self.net = models.mobilenet_v3_large(pretrained=False)
+            print('cwd ', os.getcwd())
+            state_dict = torch.load('./image_classification_pytorch/checkpoints/mobnet_v3_large_imgnet.pth')
+            print('loading imagenet weights for mobilenet', self.net.load_state_dict(state_dict))
+            # self.net.classifier = nn.Linear(self.feature_dimension, 1)
+            self.net.classifier = nn.Identity()
+        elif self.config['model_net_name'] == 'resnet18':
+            self.feature_dimension = 512
+            self.classifier = nn.Linear(self.feature_dimension, 2).cuda()
+            self.net = models.resnet18(pretrained=False)
+            print('cwd ', os.getcwd())
+            state_dict = torch.load('./image_classification_pytorch/checkpoints/resnet18_imgnet.pth')
+            print('loading imagenet weights for resnet', self.net.load_state_dict(state_dict))
+            # self.net.classifier = nn.Linear(self.feature_dimension, 1)
+            self.net.fc = nn.Identity()
+
 
 
         #self.net = torchvision.models.resnet18(pretrained=True)

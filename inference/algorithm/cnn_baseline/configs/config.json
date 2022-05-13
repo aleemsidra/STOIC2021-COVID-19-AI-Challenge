@@ -1,7 +1,7 @@
 
 {
-  "model_module_name": "cnn_module",
-  "model_net_name": "cnn",
+  "model_module_name": "mobilenet_v3_module",
+  "model_net_name": "mobilenet_v3_module",
   "gpu_id": "0",
   "async_loading": true,
   "is_tensorboard": true,
@@ -30,7 +30,7 @@
 
   "file_label_separator": "----",
   "pretrained_path": "artifact/",
-  "pretrained_file": "1.pth.tar",
+  "pretrained_file": "mobile_1.pth.tar",
 
 
 

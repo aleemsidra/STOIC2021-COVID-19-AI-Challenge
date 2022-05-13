@@ -72,6 +72,7 @@ class ImageClassificationPytorch:
 def main(args, now):
     print('args', args)
     config = process_config(os.path.join(os.path.dirname(__file__), args.config))
+    config['num_epochs']=1
     imageClassificationPytorch = ImageClassificationPytorch(config, now, args.suffix, args.wandb_mode)
     imageClassificationPytorch.run()
     imageClassificationPytorch.close()

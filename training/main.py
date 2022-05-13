@@ -15,7 +15,11 @@ if __name__ == "__main__":
     # It is recommended to write artifacts (e.g. model weights) to ARTIFACT_DIR during training.
 
 
-    suffixes= ['1','2','3','4','5']
+    suffixes_mob= ['mobile_1','mobile_2','mobile_3','mobile_4','mobile_5']
+    suffixes_res= ['resnet_1','resnet_2','resnet_3','resnet_4','resnet_5']
+
+    suffixes = suffixes_res
+
     # artifacts = do_learning(DATA_DIR, ARTIFACT_DIR)
 
 
@@ -41,7 +45,7 @@ if __name__ == "__main__":
 
         train_df.to_csv(os.path.join(SCRATCH_DIR, f'val_{suffix}.csv'),index=False)
 
-        config = f'./configs/config_mobile_{suffix}.json'
+        config = f'./configs/config_{suffix}.json'
 
 
         artifacts = do_learning(config, suffix)

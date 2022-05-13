@@ -4,3 +4,10 @@ SimpleITK>=1.2.0
 fastai>=2.5.3
 torchio>=0.18.63
 albumentations
+tensorflow 
+wandb 
+tensorboardX  
+pandas 
+json2html 
+cockpit-for-pytorch 
+easydict 

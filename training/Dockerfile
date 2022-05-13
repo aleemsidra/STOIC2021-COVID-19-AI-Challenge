@@ -23,13 +23,15 @@ RUN python -m pip install --user -U pip
 COPY --chown=train:train requirements.txt /opt/train/
 RUN python -m pip install --user -r requirements.txt
 
-COPY --chown=train:train config.py /opt/train/
-COPY --chown=train:train ctdataset.py /opt/train/
+# COPY --chown=train:train config.py /opt/train/
+# COPY --chown=train:train ctdataset.py /opt/train/
 COPY --chown=train:train main.py /opt/train/
-COPY --chown=train:train metrics.py /opt/train/
+# COPY --chown=train:train metrics.py /opt/train/
 COPY --chown=train:train train.py /opt/train/
-COPY --chown=train:train algorithm/ /opt/train/algorithm/
-COPY --chown=train:train config/ /opt/train/config/
+COPY --chown=train:train preprocess.py /opt/train/
+COPY --chown=train:train image_classification_pytorch/ /opt/train/image_classification_pytorch/
+# COPY --chown=train:train algorithm/ /opt/train/algorithm/
+# COPY --chown=train:train config/ /opt/train/config/
 
 ENTRYPOINT python -m main $0 $@
 

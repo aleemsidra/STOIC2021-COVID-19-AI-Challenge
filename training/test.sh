@@ -18,8 +18,8 @@ chmod 777 $SCRIPTPATH/../inference/artifact/
 chmod 777 $2/
 
 # Clear the artifact and scratch folder
-# rm -r $SCRIPTPATH/../inference/artifact/*
-# rm -r $2/*
+rm -r $SCRIPTPATH/../inference/artifact/*
+rm -r $2/*
 
 # Run the algorithm
 MEMORY="128g"

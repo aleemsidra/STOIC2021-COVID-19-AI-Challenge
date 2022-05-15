@@ -16,6 +16,7 @@
     "img_width": 256,
     "num_channels": 1,
     "loader" : "pil_loader",
+    "train_augs": "strong",
   
     "num_classes": 1,
     "batch_size": 16,
@@ -23,7 +24,7 @@
     "learning_rate": 1e-4,
     "patience": 10,
     "learning_rate_decay": 0.5,
-    "learning_rate_decay_epoch": 40,
+    "learning_rate_decay_epoch": 20,
   
     "train_mode": "fromscratch",
     "file_label_separator": "----",

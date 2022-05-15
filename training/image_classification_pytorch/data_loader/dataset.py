@@ -183,16 +183,39 @@ def get_data_loader(config):
     #     transforms.Normalize((0.5, ), (0.5, ))
     #         ])
 
-    train_transform = [
-        albu.Resize(img_width, img_width),
+
+
+    if config['train_augs']=='default':
+        train_transform = [
+            albu.Resize(img_width, img_width),
+            albu.HorizontalFlip(p=0.5),
+            albu.RandomCrop(224, 224),
+            albu.RandomGamma(),
+            albu.ColorJitter(brightness=0.5, contrast=0.5, saturation=0.4, hue=0.0),
+            albu.Normalize(mean=0.5, std=0.5),
+            ToTensorV2(),
+        ]
+    elif config['train_augs']=='strong':
+        train_transform = [
+        albu.geometric.SafeRotate(limit=30, border_mode=0, p=0.7),
+        albu.Resize(img_width+32, img_width+32),
+        # albu.Resize(img_width, img_width),
         albu.HorizontalFlip(p=0.5),
         albu.RandomCrop(224, 224),
+        albu.MedianBlur(),
         albu.RandomGamma(),
         albu.ColorJitter(brightness=0.5, contrast=0.5, saturation=0.4, hue=0.0),
+    #     albu.RandomToneCurve(),
+        # albu.MultiplicativeNoise(),
+
         albu.Normalize(mean=0.5, std=0.5),
         ToTensorV2(),
     ]
+
+    print('train transforms are ', train_transform)
+
     train_transform = albu.ReplayCompose(train_transform)
+
 
 
     # valid_transform = transforms.Compose([

@@ -16,6 +16,8 @@
     "img_width": 256,
     "num_channels": 1,
     "loader" : "pil_loader",
+    "train_augs": "default",
+
   
     "num_classes": 1,
     "batch_size": 16,

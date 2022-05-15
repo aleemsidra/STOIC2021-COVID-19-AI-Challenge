@@ -19,6 +19,7 @@ if __name__ == "__main__":
     suffixes_res= ['resnet_1','resnet_2','resnet_3','resnet_4','resnet_5']
 
     suffixes = suffixes_mob + suffixes_res
+    # suffixes = suffixes_res
 
     # artifacts = do_learning(DATA_DIR, ARTIFACT_DIR)
 
@@ -34,16 +35,24 @@ if __name__ == "__main__":
 
         ref_sampled = ref.sample(frac=1)
         n = len(ref_sampled)
-        train_n = int(0.8*n)
+        train_n = int(0.85*n)
 
         train_df = ref_sampled.iloc[:train_n]
         val_df = ref_sampled.iloc[train_n:]
 
+
         print('First patient of train df ', train_df.iloc[0])
+        print('len of train, val', [len(train_df), len(val_df)])
+
+        a = set(train_df.PatientID.to_list())
+        b = set(val_df.PatientID.to_list())
+
+        print('a,b, intersection ', [len(list(a)),len(list(b)),len(list(a.intersection(b)))])
+        # asd
 
         train_df.to_csv(os.path.join(SCRATCH_DIR, f'train_{suffix}.csv'),index=False)
 
-        train_df.to_csv(os.path.join(SCRATCH_DIR, f'val_{suffix}.csv'),index=False)
+        val_df.to_csv(os.path.join(SCRATCH_DIR, f'val_{suffix}.csv'),index=False)
 
         config = f'./configs/config_{suffix}.json'
 

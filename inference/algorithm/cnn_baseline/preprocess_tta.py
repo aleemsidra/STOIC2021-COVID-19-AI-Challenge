@@ -40,7 +40,7 @@ def apply_tta_custom(images, transform_dict):
             out = image
             for i in transform.transforms:
                 # print(['i', i, out.shape, type(out[0,0,0]), out.min(), out.max()])
-                out = out
+                # out = out
                 out = i.apply(img=out, **kwargs)
             
         else:

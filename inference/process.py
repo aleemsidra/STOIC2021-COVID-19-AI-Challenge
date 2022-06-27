@@ -179,8 +179,8 @@ class StoicAlgorithm(MultiClassAlgorithm):
 
         # print(probs_tta)
         # asd
-        print('here')
-        print('inside output ', output)
+        # print('here')
+        # print('inside output ', output)
 
         return {
             COVID_OUTPUT_NAME: output[1].item(),
@@ -247,8 +247,8 @@ if __name__ == "__main__":
     StoicAlgorithm().process()
     a = json.load(open('/output/probability-covid-19.json', 'rb'))
     b = json.load(open('/output/probability-severe-covid-19.json', 'rb'))
-    print('a and b ')
-    print(a)
-    print(b)
-    print('inside ')
+    # print('a and b ')
+    # print(a)
+    # print(b)
+    # print('inside ')
     # print(os.path.listdir('/output/'))

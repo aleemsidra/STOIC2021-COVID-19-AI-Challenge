@@ -156,6 +156,8 @@ class StoicAlgorithm(MultiClassAlgorithm):
         tta_crop = [{'transform':crop, 'params':{}} for crop in crops4]
 
         self.tta_transforms = tta_crop + tta_center + tta_rotate
+        # self.tta_transforms = tta_crop + tta_center
+
 
         # self.tta_transforms = None
 
@@ -245,8 +247,8 @@ if __name__ == "__main__":
     StoicAlgorithm().process()
     a = json.load(open('/output/probability-covid-19.json', 'rb'))
     b = json.load(open('/output/probability-severe-covid-19.json', 'rb'))
-    # print('a and b ')
-    # print(a)
-    # print(b)
-    # print('inside ')
+    print('a and b ')
+    print(a)
+    print(b)
+    print('inside ')
     # print(os.path.listdir('/output/'))

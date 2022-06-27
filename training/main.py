@@ -23,9 +23,11 @@ if __name__ == "__main__":
 
     # artifacts = do_learning(DATA_DIR, ARTIFACT_DIR)
 
+    mha_dir = os.path.join(DATA_DIR, 'data/mha/')
+    reference_file = os.path.join(DATA_DIR, 'metadata/reference.csv')
 
-    preprocess_dir(DATA_DIR, SCRATCH_DIR)
-    shutil.copy(os.path.join(DATA_DIR, 'reference.csv'), SCRATCH_DIR)
+    preprocess_dir(mha_dir, SCRATCH_DIR)
+    shutil.copy(reference_file, SCRATCH_DIR)
 
     # do splits
 

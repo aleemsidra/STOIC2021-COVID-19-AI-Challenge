@@ -39,11 +39,12 @@ def apply_tta_custom(images, transform_dict):
         if isinstance(transform, albu.Compose):
             out = image
             for i in transform.transforms:
-                # print(i)
-                out = i.apply(out, **kwargs)
+                # print(['i', i, out.shape, type(out[0,0,0]), out.min(), out.max()])
+                out = out
+                out = i.apply(img=out, **kwargs)
             
         else:
-            out = transform.apply(image, **kwargs)
+            out = transform.apply(img=image, **kwargs)
         out = tensorv2.apply(out)
         results.append(out)
         # asd

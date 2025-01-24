@@ -6,7 +6,7 @@ This project is an implementation of the paper ["An Ensemble Deep Learning Appro
 ## STOIC2021 - COVID-19 AI Challenge
 
 The project contains the code for our proposed method for COVID-19 Severity Prediction for ["STOIC2021 - COVID-19 AI Challenge"](https://stoic2021.grand-challenge.org/)
-
+<p align="center"><img width="60%" src="/stoic-arch.png" /></p>
 
 ## Setup
 To set up the project environment using conda, follow these steps:

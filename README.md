@@ -20,3 +20,9 @@ To set up the project environment using conda, follow these steps:
 ```
 python train.py
 ```
+
+## Example Code
+
+The proposed method secured fourth rank in final phase of the STOIC2021 - COVID-19 AI Challenge
+
+<p align="center"><img width="60%" src="/stoic results.png" /></p>

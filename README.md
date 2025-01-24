@@ -1,7 +1,6 @@
 ## An Ensemble Deep Learning Approach for COVID-19 Severity Prediction Using Chest CT Scans
 
-
-This project is an implementation of the paper ["An Ensemble Deep Learning Approach for COVID-19 Severity Prediction Using Chest CT Scans"](https://arxiv.org/pdf/2305.10115),  accepted at [IEEE IMVIP 2022].
+This repository contains the Pytorch implementation of our paper ["An Ensemble Deep Learning Approach for COVID-19 Severity Prediction Using Chest CT Scans"](https://arxiv.org/pdf/2305.10115),  accepted at [IEEE IMVIP 2022].
 
 ## STOIC2021 - COVID-19 AI Challenge
 
